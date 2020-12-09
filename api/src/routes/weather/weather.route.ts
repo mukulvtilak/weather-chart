@@ -16,8 +16,7 @@ class WeatherRoute {
     private _configure() {
         this._router.get('/', (req: Request, res: Response, next: NextFunction) => {
             try {
-                const result = this._controller.default();
-                res.status(200).json(result);
+                this._controller.default(req, res, next);
             } catch (err) {
                 next(err);
             }
